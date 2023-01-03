@@ -62,7 +62,7 @@ public class HarvestableCropManager {
         for (var e : harvestMapping.entrySet()) {
             logger.info(
                     String.format("Crop '%s' has been mapped to class '%s'.",
-                            e.getKey(), getDisplayClassName(e.getValue().getClass())));
+                            e.getKey().getKey(), getDisplayClassName(e.getValue().getClass())));
         }
     }
 
