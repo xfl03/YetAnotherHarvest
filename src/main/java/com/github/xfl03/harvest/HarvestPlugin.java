@@ -22,8 +22,18 @@ public class HarvestPlugin extends JavaPlugin {
         instance = this;
         var manager = HarvestableCropManager.getInstance();
         manager.loadHarvestMapping();
+        initConfig(manager);
         getServer().getPluginManager().registerEvents(new PlayerInteractiveListener(), this);
-        manager.debugHarvestMapping();
+        manager.debugHarvestMapping(getConfig().getBoolean("printHarvestMapping"));
+    }
+
+    private void initConfig(HarvestableCropManager manager) {
+        var config = getConfig();
+        config.addDefault("printHarvestMapping", false);
+        config.addDefault("cancelInteractEvent", false);
+        manager.initHarvestMappingConfig(config);
+        config.options().copyDefaults(true);
+        saveConfig();
     }
 
     public static HarvestPlugin getInstance() {

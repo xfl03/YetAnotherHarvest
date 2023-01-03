@@ -5,9 +5,11 @@ import com.github.xfl03.harvest.api.HarvestMapping;
 import com.github.xfl03.harvest.api.HarvestableCrop;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ServiceLoader;
@@ -33,8 +35,30 @@ public class HarvestableCropManager {
         }
     }
 
-    public void debugHarvestMapping() {
+    public void initHarvestMappingConfig(FileConfiguration config) {
+        var removeList = new ArrayList<Material>(harvestMapping.size());
+        for (var e : harvestMapping.entrySet()) {
+            var key = toConfigString(e.getKey());
+            config.addDefault(key, true);
+            if (!config.getBoolean(key)) {
+                removeList.add(e.getKey());
+            }
+        }
+        for (var key : removeList) {
+            harvestMapping.remove(key);
+        }
+    }
+
+    private String toConfigString(Material material) {
+        var key = material.getKey();
+        return "crops." + key.getNamespace() + '.' + key.getKey();
+    }
+
+    public void debugHarvestMapping(boolean detail) {
         logger.info(String.format("%s crops could be harvested by right click.", harvestMapping.size()));
+        if (!detail) {
+            return;
+        }
         for (var e : harvestMapping.entrySet()) {
             logger.info(
                     String.format("Crop '%s' has been mapped to class '%s'.",

@@ -1,5 +1,5 @@
 # Yet Another Harvest
-It's a [Bukkit](https://bukkit.org/) and [Spigot](https://www.spigotmc.org/) plugin.  
+It's a [Bukkit](https://bukkit.org/) and [Spigot](https://www.spigotmc.org/) plugin for Minecraft Server.  
 It can do both harvest and replant crops by right click.
 
 ## Download
