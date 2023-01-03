@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 @HarvestMapping({
-        Material.WHEAT, Material.POTATOES, Material.CARROTS, Material.BEETROOTS, Material.NETHER_WART, Material.COCOA
+        "WHEAT", "POTATOES", "CARROTS", "BEETROOTS", "NETHER_WART", "COCOA"
 })
 public class StandardCrop extends AgeableCrop {
     @Override

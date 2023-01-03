@@ -25,11 +25,16 @@ public class HarvestableCropManager {
             var mapping = service.getClass().getAnnotation(HarvestMapping.class);
             if (mapping == null) {
                 logger.warning(
-                        String.format("Class %s didn't have HarvestMapping annotation.",
+                        String.format("Class '%s' didn't have HarvestMapping annotation.",
                                 getDisplayClassName(service.getClass())));
                 continue;
             }
-            for (var material : mapping.value()) {
+            for (var materialStr : mapping.value()) {
+                var material = Material.getMaterial(materialStr);
+                if (material == null) {
+                    logger.warning(String.format("Material '%s' not found.", materialStr));
+                    continue;
+                }
                 harvestMapping.put(material, service);
             }
         }

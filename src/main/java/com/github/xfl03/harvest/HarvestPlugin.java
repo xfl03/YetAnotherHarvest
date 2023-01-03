@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.annotation.plugin.Plugin;
 import org.bukkit.plugin.java.annotation.plugin.Website;
 import org.bukkit.plugin.java.annotation.plugin.author.Author;
 
-@Plugin(name = "YetAnotherHarvest", version = "1.0")
+@Plugin(name = "YetAnotherHarvest", version = "1.1")
 @Author("xfl03")
 @Description("Harvest and replant crops by right click.")
 @Website("https://github.com/xfl03")

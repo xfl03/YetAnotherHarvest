@@ -3,7 +3,6 @@ package com.github.xfl03.harvest.crop;
 import com.github.xfl03.harvest.api.HarvestMapping;
 import com.github.xfl03.harvest.api.HarvestableCrop;
 import com.github.xfl03.harvest.util.HarvestUtil;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -11,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@HarvestMapping({Material.SUGAR_CANE})
+@HarvestMapping("SUGAR_CANE")
 public class SugarCaneCrop implements HarvestableCrop {
     @Override
     public boolean isHarvestable(@NotNull Player player, @NotNull Block block) {
