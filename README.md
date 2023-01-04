@@ -3,7 +3,7 @@ It's a [Bukkit](https://bukkit.org/) and [Spigot](https://www.spigotmc.org/) plu
 It can do both harvest and replant crops by right click.
 
 ## Download
-Under-construction
+[CurseForge](https://www.curseforge.com/minecraft/bukkit-plugins/yetanotherharvest)
 
 ## Supported Crops
 - Wheat
