@@ -10,40 +10,40 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@HarvestMapping("SUGAR_CANE")
-public class SugarCaneCrop implements HarvestableCrop {
+@HarvestMapping({"SUGAR_CANE", "BAMBOO"})
+public class MultiBlockCrop implements HarvestableCrop {
     @Override
     public boolean isHarvestable(@NotNull Player player, @NotNull Block block) {
-        return getSugarCanes(block).size() > 1;
+        return getCropBlocks(block).size() > 1;
     }
 
     @Override
     public void harvest(@NotNull Player player, @NotNull Block block) {
-        var sugarCanes = getSugarCanes(block);
-        var b = sugarCanes.get(1);
+        var blocks = getCropBlocks(block);
+        var b = blocks.get(1);
         b.breakNaturally();
     }
 
-    private List<Block> getSugarCanes(@NotNull Block block) {
-        //The length of sugar canes is no more than 4
-        var sugarCanes = new ArrayList<Block>(4);
-        //Search sugar cane from down to up
-        for (var i = -3; i <= 3; ++i) {
+    private List<Block> getCropBlocks(@NotNull Block block) {
+        //The length of crop block is no more than 16
+        var blocks = new ArrayList<Block>(16);
+        //Search crop block from down to up
+        for (var i = -15; i <= 15; ++i) {
             var block1 = HarvestUtil.getBlock(block, 0, i, 0);
             if (block1.getType() == block.getType()) {
-                sugarCanes.add(block1);
+                blocks.add(block1);
                 continue;
             }
             //When reach here, means sugar canes is unlinked
             //Output is the linked sugar canes with given block
             if (i < 0) {
                 //When unlink part is under block, clear the list
-                sugarCanes.clear();
+                blocks.clear();
             } else {
                 //When unlink part is above block, search end
                 break;
             }
         }
-        return sugarCanes;
+        return blocks;
     }
 }

@@ -6,6 +6,7 @@ It can do both harvest and replant crops by right click.
 [CurseForge](https://www.curseforge.com/minecraft/bukkit-plugins/yetanotherharvest)
 
 ## Supported Crops
+Crop can be turned off in configuration file, which located at `plugins/YetAnotherHarvest/config.yml`.
 - Wheat
 - Melon
 - Pumpkin
@@ -15,6 +16,7 @@ It can do both harvest and replant crops by right click.
 - Cocoa Bean
 - Beetroot
 - Nether Wart
+- Bamboo (from Minecraft 1.14)
 
 ## Compatibility
 - Minecraft 1.13 and later
