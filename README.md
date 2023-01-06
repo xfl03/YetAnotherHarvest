@@ -7,6 +7,7 @@ It can do both harvest and replant crops by right click.
 
 ## Supported Crops
 Crop can be turned off in configuration file, which located at `plugins/YetAnotherHarvest/config.yml`.
+
 - Wheat
 - Melon
 - Pumpkin
